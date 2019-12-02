@@ -1,3 +1,5 @@
+require 'pg'
+
 class Bookmark
   attr_reader :name, :url
 
@@ -7,13 +9,9 @@ class Bookmark
   end
 
   def self.all
-    [
-      new('Google', 'https://google.com'), 
-      new('Reddit', 'https://reddit.com'), 
-      new('YouTube', 'https://youtube.com'), 
-      new('BBC News', 'https://bbc.co.uk/news'), 
-      new('Cincinnati Zoo', 'http://cincinnatizoo.org')
-    ]
+    con = PG.connect dbname: 'bookmark_manager', user: ENV['USER']
+    rows = con.exec 'SELECT * FROM bookmarks'
+    rows.reduce([]) { |res, row| res << Bookmark.new(row['id'], row['url']) }
   end
 
   def == other

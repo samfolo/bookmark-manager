@@ -13,6 +13,7 @@ RSpec.feature 'listing bookmarks' do
 
   context 'hardcoded contents' do
     scenario 'it has default names' do
+      skip
       visit '/bookmarks'
 
       expect(page).to have_content 'Google'
