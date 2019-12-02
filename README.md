@@ -17,3 +17,20 @@
 | - | - | 
 | `#create(name, url)` | `#show` | 
 |   | `#size` | 
+
+## Database Setup
+
+Install `PostgreSQL` and setup for your user
+Create a database called `bookmark_manager` using the command
+
+```
+$ createdb bookmark_manager
+```
+
+Open the database with
+
+```
+$ psql bookmark_manager
+```
+
+And finally, create the bookmark table by using the command save to `db/migrations/01_create_bookmarks_table.sql`
