@@ -10,12 +10,12 @@
 
 ### Class Diagram
 
-|-|-|
-|Bookmark|BookmarkList|
-|-|-|
-|`@url`|`@bookmarks`|
-|`@name`| |
-|-|-|
-|`#create(name, url)`|`#show`|
-| |`#size`|
-|-|-|
+| --- | --- |
+| Bookmark | BookmarkList |
+| --- | --- |
+| `@url` | `@bookmarks` |
+| `@name` | |
+| - | - | 
+| `#create(name, url)` | `#show` | 
+|   | `#size` | 
+| - | - | 
