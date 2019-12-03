@@ -14,7 +14,7 @@
 | --- | --- |
 | `@url` | `@bookmarks` |
 | `@name` | |
-| - | - | 
+|  |  | 
 | `#create(name, url)` | `#show` | 
 |   | `#size` | 
 
