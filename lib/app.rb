@@ -1,5 +1,6 @@
 require 'rspec'
 require 'sinatra/base'
+require_relative 'bookmark'
 
 class BookmarkManager < Sinatra::Base
 
@@ -8,7 +9,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    'Name URL'
+    @bookmarks = Bookmark.all
+    erb :bookmarks
   end
 
   run! if app_file == $0

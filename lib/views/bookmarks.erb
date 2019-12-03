@@ -8,10 +8,11 @@
 </head>
 <body>
     <table>
-    <th>
-      <td>Name</td>
-      <td>URL</td>
-    </th>
+      <thead>
+        <th>Name</th>
+        <th>URL</th>
+      </thead>
+      <%= @bookmarks.map { |bookmark| '<tr><td>' + bookmark.name + '</td><td>' + bookmark.url + '</td></tr>' }.join %>
   </table>
 </body>
 </html>
