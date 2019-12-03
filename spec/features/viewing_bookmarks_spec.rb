@@ -4,10 +4,4 @@ RSpec.feature 'viewing bookmarks' do
     expect(page).to have_content 'Name'
     expect(page).to have_content 'URL'
   end
-
-  scenario 'user bookmarks various pages' do
-    visit '/bookmarks'
-    expect(page).to have_content 'https://google.com'
-    expect(page).to have_content 'https://reddit.com'
-  end
 end
