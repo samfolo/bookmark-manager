@@ -9,10 +9,25 @@
 <body>
     <table>
       <thead>
-        <th>Name</th>
-        <th>URL</th>
+        <tr>
+          <th>Title</th>
+          <th>URL</th>
+        </tr>
       </thead>
-      <%= @bookmarks.map { |bookmark| '<tr><td>' + bookmark.name + '</td><td>' + bookmark.url + '</td></tr>' }.join %>
+      <tbody>
+      <%= @bookmarks.map { |bookmark| 
+       '<tr>
+          <td>' + bookmark.title + '</td>
+          <td>' + bookmark.url + '</td>
+        </tr>'
+      }.join %>
+      </tbody>
   </table>
+
+  <form action="bookmarks" method="POST">
+    <input type="text" name="title" placeholder="Title"/>
+    <input type="text"  name="url" placeholder="URL"/>
+    <input type="submit" value="Submit"/>
+  </form>
 </body>
 </html>

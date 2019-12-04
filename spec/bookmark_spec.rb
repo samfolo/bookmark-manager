@@ -12,7 +12,7 @@ RSpec.describe Bookmark do
   end
   
   it 'has a name' do
-    expect(test_bookmark.name).to eq 'MySite'
+    expect(test_bookmark.title).to eq 'MySite'
   end
 
   it 'has a URL' do
