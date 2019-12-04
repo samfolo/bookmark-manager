@@ -1,6 +1,7 @@
 require 'rspec'
 require 'sinatra/base'
 require_relative 'bookmark'
+require 'pg'
 
 class BookmarkManager < Sinatra::Base
 

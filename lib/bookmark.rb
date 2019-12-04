@@ -17,8 +17,6 @@ class Bookmark
     rows.reduce([]) { |arr, row| arr << Bookmark.new(row['title'], row['url']) }
   end
 
-  private
-
   def self.dbname
     ENV['ENVIRONMENT'] == 'test' ? 'bookmark_manager_test' : 'bookmark_manager'
   end
