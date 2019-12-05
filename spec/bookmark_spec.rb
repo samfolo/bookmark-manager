@@ -36,4 +36,20 @@ RSpec.describe Bookmark do
       expect(urls).to include 'https://twitter.com'
     end
   end
+
+  describe '.delete' do
+    before(:each) do
+      Bookmark.add_bookmark('YouTube', 'https://youtube.com')
+      Bookmark.add_bookmark('Twitter', 'https://twitter.com')
+      Bookmark.add_bookmark('Reddit', 'https://reddit.com')
+    end
+
+    it 'removes an entry from the list of bookmarks' do
+      Bookmark.delete('YouTube')
+      
+      urls = test_list.map { |bookmark| bookmark.url }
+
+      expect(urls).not_to include 'https://youtube.com'
+    end
+  end
 end

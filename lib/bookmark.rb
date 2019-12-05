@@ -12,6 +12,10 @@ class Bookmark
     CONNECTION.exec "INSERT INTO bookmarks (title, url) VALUES ('#{title}', '#{url}')"
   end
 
+  def self.delete(title)
+    CONNECTION.exec "DELETE FROM bookmarks WHERE title = '#{title}'"
+  end
+
   def self.all
     rows = CONNECTION.exec 'SELECT * FROM bookmarks'
     rows.reduce([]) { |arr, row| arr << Bookmark.new(row['title'], row['url']) }

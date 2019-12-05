@@ -5,6 +5,10 @@ require 'pg'
 
 class BookmarkManager < Sinatra::Base
 
+  before do
+    @selection = params.keys.pop
+  end
+
   get '/' do
     erb :index
   end
@@ -16,6 +20,11 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks' do
     Bookmark.add_bookmark(params['title'], params['url'])
+    redirect '/bookmarks'
+  end
+
+  post '/delete' do
+    Bookmark.delete(@selection)
     redirect '/bookmarks'
   end
 

@@ -14,12 +14,18 @@
         </tr>
       </thead>
       <tbody>
-      <%= @bookmarks.map { |bookmark| 
+      <%= @bookmarks.map { |bookmark|
        "<tr>
           <td>
-            <a href=\"#{bookmark.url}\">" + bookmark.title + '</a>
+            <a href=\"#{bookmark.url}\">" + bookmark.title + "</a>
+            <form action=\"/delete\" method=\"post\">
+              <input type=\"submit\" 
+                     name=\"#{bookmark.title}\" 
+                     id=\"delete-#{bookmark.title.gsub(' ', '-').downcase}\" 
+                     value=\"DELETE\">
+            </form>
           </td>
-        </tr>'
+        </tr>"
       }.join %>
       </tbody>
   </table>
