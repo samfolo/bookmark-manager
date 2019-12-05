@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
   <table>
     <thead>
       <th>Name</th>
@@ -20,6 +21,31 @@
       </tr>' 
     }.join %>
     </tbody>
+=======
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= @bookmarks.map { |bookmark| 
+       "<tr>
+          <td>
+            <a href=\"#{bookmark.url}\">" + bookmark.title + '</a>
+          </td>
+          <td>' + bookmark.url + '</td>
+        </tr>'
+      }.join %>
+      </tbody>
+>>>>>>> e8a0fe3f560285cd1c3df598c76c06fa10f3ac2d
   </table>
+
+  <form action="/bookmarks" method="POST">
+    <input type="text" name="title" placeholder="Title"/>
+    <input type="text"  name="url" placeholder="URL"/>
+    <input type="submit" value="Submit"/>
+  </form>
 </body>
 </html>

@@ -8,7 +8,7 @@ RSpec.describe Bookmark do
   let(:test_bookmark) { Bookmark.new('MySite', 'https://mysite.gov') }
   
   it 'has a name' do
-    expect(test_bookmark.name).to eq 'MySite'
+    expect(test_bookmark.title).to eq 'MySite'
   end
 
   it 'has a URL' do
