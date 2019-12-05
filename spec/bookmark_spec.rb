@@ -6,10 +6,6 @@ RSpec.describe Bookmark do
   let(:test_list) { described_class.all }
   let(:db_info) { { dbname: 'bookmark_manager_test', user: ENV['USER'] } }
   let(:test_bookmark) { Bookmark.new('MySite', 'https://mysite.gov') }
-
-  before(:each) do
-    refresh_database
-  end
   
   it 'has a name' do
     expect(test_bookmark.name).to eq 'MySite'

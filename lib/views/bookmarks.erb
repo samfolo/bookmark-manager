@@ -7,12 +7,19 @@
   <title>Document</title>
 </head>
 <body>
-    <table>
-      <thead>
-        <th>Name</th>
-        <th>URL</th>
-      </thead>
-      <%= @bookmarks.map { |bookmark| '<tr><td>' + bookmark.name + '</td><td>' + bookmark.url + '</td></tr>' }.join %>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>URL</th>
+    </thead>
+    <tbody>
+    <%= @bookmarks.map { |bookmark| 
+      '<tr>
+        <td>' + bookmark.name + '</td>
+        <td>' + bookmark.url +  '</td>
+      </tr>' 
+    }.join %>
+    </tbody>
   </table>
 </body>
 </html>
