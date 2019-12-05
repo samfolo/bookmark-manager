@@ -15,7 +15,7 @@ RSpec.describe Bookmark do
     expect(test_bookmark.url).to eq 'https://mysite.gov'
   end
 
-  context 'adding bookmarks' do
+  context '.add_bookmark' do
     it 'returns twitter and makers academy when both sites are added to bookmarks' do
       Bookmark.add_bookmark('Twitter', 'https://twitter.com')
       Bookmark.add_bookmark('Reddit', 'https://reddit.com')
@@ -50,6 +50,22 @@ RSpec.describe Bookmark do
       urls = test_list.map { |bookmark| bookmark.url }
 
       expect(urls).not_to include 'https://youtube.com'
+    end
+  end
+
+  describe '.update' do
+    before(:each) do
+      Bookmark.add_bookmark('YouTube', 'https://youtube.com')
+      Bookmark.add_bookmark('Twitter', 'https://twitter.com')
+      Bookmark.add_bookmark('Reddit', 'https://reddit.com')
+    end
+
+    it 'update the information for an existing URL' do
+      Bookmark.update('YouTube', '', 'https://yewtoob.com')
+
+      urls = test_list.map { |bookmark| bookmark.url }
+
+      expect(urls).to include 'https://yewtoob.com'
     end
   end
 end

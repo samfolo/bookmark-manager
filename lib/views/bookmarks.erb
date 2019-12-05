@@ -18,11 +18,17 @@
        "<tr>
           <td>
             <a href=\"#{bookmark.url}\">" + bookmark.title + "</a>
-            <form action=\"/delete\" method=\"post\">
+            <form action=\"/delete\" method=\"POST\">
               <input type=\"submit\" 
                      name=\"#{bookmark.title}\" 
                      id=\"delete-#{bookmark.title.gsub(' ', '-').downcase}\" 
                      value=\"DELETE\">
+            </form>
+            <form action=\"/update\" method=\"POST\">
+              <input type=\"submit\" 
+                     name=\"#{bookmark.title}\" 
+                     id=\"update-#{bookmark.title.gsub(' ', '-').downcase}\" 
+                     value=\"UPDATE\">
             </form>
           </td>
         </tr>"
