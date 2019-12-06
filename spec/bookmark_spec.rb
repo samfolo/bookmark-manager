@@ -35,6 +35,14 @@ RSpec.describe Bookmark do
       expect(urls).to include 'https://youtube.com'
       expect(urls).to include 'https://twitter.com'
     end
+
+    it 'prevents invalid urls from being added to the database' do
+      Bookmark.add_bookmark('YouTube', 'https:///youtube.. .com')
+
+      urls = test_list.map { |bookmark| bookmark.title }
+
+      expect(urls).not_to include 'YouTube'
+    end
   end
 
   describe '.delete' do

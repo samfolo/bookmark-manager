@@ -39,6 +39,7 @@
   <form action="/bookmarks" method="POST">
     <input type="text" name="title" placeholder="Title"/>
     <input type="text"  name="url" placeholder="URL"/>
+    <%= '<span style="color: red; font-size: 10px;">Invalid URL</span>' unless @valid_entry %>
     <input type="submit" value="Submit"/>
   </form>
 </body>

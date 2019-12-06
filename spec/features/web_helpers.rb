@@ -1,4 +1,10 @@
+require_relative '../../lib/database_connection'
+
 def refresh_database
-  connection = PG.connect dbname: 'bookmark_manager_test', user: ENV['USER']
-  connection.exec 'TRUNCATE bookmarks'
+  DatabaseConnection.setup ENV['USER']
+  DatabaseConnection.query 'TRUNCATE bookmarks'
+end
+
+def establish_connection
+  DatabaseConnection.setup ENV['USER']
 end

@@ -1,11 +1,14 @@
+require 'pg'
 require 'rspec'
 require 'sinatra/base'
 require_relative 'bookmark'
-require 'pg'
+require_relative 'database_connection'
 
 class BookmarkManager < Sinatra::Base
+  enable :sessions
 
   before do
+    DatabaseConnection.setup ENV['USER']
     @selection = params.keys.pop
   end
 
@@ -14,12 +17,13 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @valid_entry = session[:valid] == true
     @bookmarks = Bookmark.all
     erb :bookmarks
   end
 
   post '/bookmarks' do
-    Bookmark.add_bookmark(params['title'], params['url'])
+    session[:valid] = Bookmark.add_bookmark(params['title'], params['url'])
     redirect '/bookmarks'
   end
 
